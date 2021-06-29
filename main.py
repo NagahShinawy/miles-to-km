@@ -75,11 +75,11 @@ def main():
     convert_btn.pack(pady=20)
     ########################
     miles = Entry(width=20)
-    miles.pack(side="top")
+    miles.pack(side="left")
     ########################
     change_text = partial(change_me, miles_to_km, miles)
     click_me = Button(text="Click Me", bg="red", fg="green", command=change_text)
-    click_me.pack(side="top")
+    click_me.pack(side="left")
 
     ############################
     # Text
@@ -101,7 +101,7 @@ def main():
         print(spinbox.get())
 
     spinbox = Spinbox(from_=1, to=120, width=5, command=spinbox_used)
-    spinbox.pack()
+    spinbox.pack(side="left")
 
     ##########################
     # Scale
@@ -110,7 +110,7 @@ def main():
         print(value)
 
     scale = Scale(from_=1, to=100, command=scale_used)
-    scale.pack()
+    scale.pack(side="left")
 
     ##########################
 
@@ -126,7 +126,7 @@ def main():
         text="Is On?", variable=checked_state, command=checkbutton_used
     )
     print("V is", checked_state.get())
-    checkbutton.pack()
+    checkbutton.pack(side="left")
     #########################
     print("#" * 100)
 
