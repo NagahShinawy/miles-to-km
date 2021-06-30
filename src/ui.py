@@ -4,11 +4,6 @@ created by Nagaj at 30/06/2021
 from tkinter import Tk, Entry, Label, Button, DoubleVar, messagebox
 from mile import Mile
 
-
-KNOW_YOUR_NUMBERS = "KYN"
-INPUT_AGE_X = 230
-INPUT_AGE_Y = 80
-DEFAULT_AGE = "01"
 BTN_X = 150
 BTN_Y = 150
 BTN_GREEN_BG = "#e75e40"
@@ -23,6 +18,21 @@ DEFAULT_FONT_CONFIG = (
 )
 ENTRY_WIDTH = 2
 BTN_FONT = ("Arial", 12, "bold")
+PADX_WINDOW = 180
+PADY_WINDOW = 100
+DEFAULT_MILES = 1.00
+MILES_ROW = MILES_COL = 0
+MILES_WIDTH = 10
+PADX_MILES = 5
+MILES_LABEL_ROW = 0
+MILES_LABEL_COL = 1
+RESULT_ROW = 1
+RESULT_COL = 0
+
+KM_ROW = KM_COL = 1
+BTN_ROW = 2
+BTN_COL = 0
+PADY_BTN = 10
 
 
 class WindowWidget(Tk):
@@ -54,25 +64,25 @@ class WindowWidget(Tk):
         self.init_components()
 
     def init_components(self):
-        super().config(padx=170, pady=100)
+        super().config(padx=PADX_WINDOW, pady=PADY_WINDOW)
         default_miles = DoubleVar()
-        default_miles.set(1.00)
+        default_miles.set(DEFAULT_MILES)
         self.mile = Entry(
-            textvariable=default_miles, font=DEFAULT_FONT_CONFIG, width=10
+            textvariable=default_miles, font=DEFAULT_FONT_CONFIG, width=MILES_WIDTH
         )
-        self.mile.grid(row=0, column=0)
+        self.mile.grid(row=MILES_ROW, column=MILES_COL)
         # mile label
-        Label(text="Miles", font=DEFAULT_FONT_CONFIG, padx=5).grid(row=0, column=1)
+        Label(text="Miles", font=DEFAULT_FONT_CONFIG, padx=PADX_MILES).grid(row=MILES_LABEL_ROW, column=MILES_LABEL_COL)
 
         # result
         self.km = Label(text="0.0", font=DEFAULT_FONT_CONFIG)
-        self.km.grid(row=1, column=0)
+        self.km.grid(row=RESULT_ROW, column=RESULT_COL)
 
         # km label
-        Label(text="KM", font=DEFAULT_FONT_CONFIG).grid(row=1, column=1)
+        Label(text="KM", font=DEFAULT_FONT_CONFIG).grid(row=KM_ROW, column=KM_COL)
 
         # calc btn
-        btn = Button(
+        Button(
             text=BTN_TEXT,
             width=BTN_WIDTH,
             height=BTN_HEIGHT,
@@ -81,7 +91,7 @@ class WindowWidget(Tk):
             borderwidth=BTN_BORDER_WIDTH,
             font=BTN_FONT,
             command=self.show_conversion_result,
-        ).grid(row=2, column=0, pady=10)
+        ).grid(row=BTN_ROW, column=BTN_COL, pady=PADY_BTN)
 
     def show_conversion_result(self):
         value = self.mile.get()
