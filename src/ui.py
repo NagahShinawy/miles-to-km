@@ -32,7 +32,7 @@ class WindowWidget(Tk):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.mile_as_input = None
+        self.mile = None
         self.km = None
 
     def config(self, title, image=None, is_center=False, **kwargs):
@@ -57,10 +57,10 @@ class WindowWidget(Tk):
         super().config(padx=170, pady=100)
         default_miles = DoubleVar()
         default_miles.set(1.00)
-        self.mile_as_input = Entry(
+        self.mile = Entry(
             textvariable=default_miles, font=DEFAULT_FONT_CONFIG, width=10
         )
-        self.mile_as_input.grid(row=0, column=0)
+        self.mile.grid(row=0, column=0)
         # mile label
         miles = Label(text="Miles", font=DEFAULT_FONT_CONFIG, padx=5)
         miles.grid(row=0, column=1)
@@ -87,7 +87,7 @@ class WindowWidget(Tk):
         btn.grid(row=2, column=0, pady=10)
 
     def show_conversion_result(self):
-        value = self.mile_as_input.get()
+        value = self.mile.get()
         mile = Mile(value)
         if mile.is_valid():
             self.km.config(text=mile.to_km())
