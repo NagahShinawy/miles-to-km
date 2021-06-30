@@ -159,6 +159,7 @@ def main():
     listbox.bind("<<ListboxSelect>>", listbox_used)
     listbox.pack()
     #########################
+    label = Label(text="testing")
     window.mainloop()  # keep window open while working
 
 
