@@ -62,16 +62,14 @@ class WindowWidget(Tk):
         )
         self.mile.grid(row=0, column=0)
         # mile label
-        miles = Label(text="Miles", font=DEFAULT_FONT_CONFIG, padx=5)
-        miles.grid(row=0, column=1)
+        Label(text="Miles", font=DEFAULT_FONT_CONFIG, padx=5).grid(row=0, column=1)
 
         # result
         self.km = Label(text="0.0", font=DEFAULT_FONT_CONFIG)
         self.km.grid(row=1, column=0)
 
         # km label
-        miles = Label(text="KM", font=DEFAULT_FONT_CONFIG)
-        miles.grid(row=1, column=1)
+        Label(text="KM", font=DEFAULT_FONT_CONFIG).grid(row=1, column=1)
 
         # calc btn
         btn = Button(
@@ -83,8 +81,7 @@ class WindowWidget(Tk):
             borderwidth=BTN_BORDER_WIDTH,
             font=BTN_FONT,
             command=self.show_conversion_result,
-        )
-        btn.grid(row=2, column=0, pady=10)
+        ).grid(row=2, column=0, pady=10)
 
     def show_conversion_result(self):
         value = self.mile.get()
