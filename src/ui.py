@@ -97,7 +97,7 @@ class WindowWidget(Tk):
         value = self.mile.get()
         mile = Mile(value)
         if mile.is_valid():
-            self.km.config(text=round(mile.to_km(), 2))
+            self.km.config(text=round(mile.to_km(), 3))
         else:
             messagebox.showerror(
                 title="Invalid Number", message=f"Must be Number Not [{value}]"
